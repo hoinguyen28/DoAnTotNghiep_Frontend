@@ -2,6 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import { getAllImageByArt } from "./api/ImageApi";
+
 function App() {
   return (
     <div className="App">
@@ -20,7 +22,21 @@ function App() {
         </a>
       </header>
     </div>
+    
   );
 }
+async function testGetAllImageByArt(idArt: number): Promise<void> {
+  try {
+    // Gọi hàm getAllImageByArt và chờ kết quả
+    const images = await getAllImageByArt(idArt);
+    
+    // Hiển thị kết quả ra cửa sổ console
+    console.log('Images:', images);
+  } catch (error) {
+    console.error('Error fetching images:', error);
+  }
+}
 
+// Gọi hàm testGetAllImageByArt với idArt là 1 (hoặc bất kỳ idArt nào bạn muốn thử)
+testGetAllImageByArt(1);
 export default App;
