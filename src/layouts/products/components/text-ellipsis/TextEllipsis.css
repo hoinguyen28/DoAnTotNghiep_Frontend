@@ -1,0 +1,11 @@
+.text-ellipsis-container {
+	max-height: 50px; 
+	overflow: hidden; 
+	transition: all 0.5s ease-in-out; 
+}
+
+.text-ellipsis-button {
+	width: 20%;
+	cursor: pointer;
+	text-decoration: underline;
+}

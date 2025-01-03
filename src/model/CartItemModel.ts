@@ -1,15 +1,15 @@
-import BookModel from "./ArtModel";
+import ArtModel from "./ArtModel";
 
 class CartItemModel {
    idCart?: any;
    quantity: number;
-   book: BookModel;
+   art: ArtModel;
    idUser?: number;
    review?: boolean;
 
-   constructor(quantity: number, book: BookModel) {
+   constructor(quantity: number, art: ArtModel) {
       this.quantity = quantity;
-      this.book = book;
+      this.art = art;
    }
 }
 

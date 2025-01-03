@@ -103,9 +103,9 @@ export async function getAllOrders(): Promise<OrderModel[]> {
  
        // Lấy thông tin sách cho mỗi chi tiết đơn hàng
        await Promise.all(responseOrderDetail._embedded.orderDetails.map(async (orderDetail: any) => {
-          const responseBook = await request(`${endpointBE}/order-detail/${orderDetail.idOrderDetail}/book`);
+          const responseArt = await request(`${endpointBE}/order-detail/${orderDetail.idOrderDetail}/art`);
           cartItems.push({
-             book: responseBook, 
+             art: responseArt, 
              quantity: orderDetail.quantity, 
              review: orderDetail.review || null, // Nếu không có đánh giá thì gán null
           });
@@ -138,4 +138,36 @@ export async function getAllOrders(): Promise<OrderModel[]> {
        return null;
     }
  }
+ export async function get1Orders(idOrder: number): Promise<OrderModel> {
+   const endpoint: string = endpointBE + `/orders/${idOrder}`;
+   const responseOrder = await request(endpoint);
+   const responsePayment = await request(endpointBE + `/orders/${responseOrder.idOrder}/payment`);
+   const responseOrderDetail = await request(endpointBE + `/orders/${responseOrder.idOrder}/listOrderDetails`);
+   let cartItems: CartItemModel[] = [];
+
+   // Sử dụng Promise.all để chờ tất cả các promise hoàn thành
+   await Promise.all(responseOrderDetail._embedded.orderDetails.map(async (orderDetail: any) => {
+      const responseArt = await request(endpointBE + `/order-detail/${orderDetail.idOrderDetail}/art`);
+      cartItems.push({ art: responseArt, quantity: orderDetail.quantity, review: orderDetail.review });
+   }));
+
+   const order: OrderModel = {
+      idOrder: responseOrder.idOrder,
+      deliveryAddress: responseOrder.deliveryAddress,
+      totalPrice: responseOrder.totalPrice,
+      totalPriceProduct: responseOrder.totalPriceProduct,
+      feeDelivery: responseOrder.feeDelivery,   
+      feePayment: responseOrder.feePayment,
+      dateCreated: responseOrder.dateCreated,
+      status: responseOrder.status,
+      user: responseOrder._embedded.user,
+      fullName: responseOrder.fullName,
+      phoneNumber: responseOrder.phoneNumber,
+      note: responseOrder.note,
+      cartItems: cartItems,
+      payment: responsePayment.namePayment,
+   }
+
+   return order;
+}
  

@@ -1,6 +1,4 @@
-import BookModel from "./ArtModel";
 import CartItemModel from "./CartItemModel";
-import PaymentModel from "./PaymentModel";
 import UserModel from "./UserModel";
 
 class OrderModel {
@@ -18,8 +16,7 @@ class OrderModel {
    phoneNumber?: string;
    note?: string;
    payment?: string;
-   cartItems?: CartItemModel[]; // để tạm
-
+   cartItems?: CartItemModel[]; 
 
    constructor(idOrder: number,
       deliveryAddress: string,

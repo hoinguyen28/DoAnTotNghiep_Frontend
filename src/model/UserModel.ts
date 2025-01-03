@@ -24,7 +24,7 @@ class UserModel {
       gender: string,
       password: string,
       phoneNumber: string,
-      username: string, avatar: string) {
+      username: string, avatar: string, role: number) {
       this.idUser = idUser;
       this.dateOfBirth = dateOfBirth;
       this.deliveryAddress = deliveryAddress;
@@ -37,6 +37,7 @@ class UserModel {
       this.phoneNumber = phoneNumber;
       this.username = username;
       this.avatar = avatar;
+      this.role = role;
    }
 }
 

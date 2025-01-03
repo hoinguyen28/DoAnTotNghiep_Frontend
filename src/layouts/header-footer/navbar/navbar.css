@@ -1,0 +1,152 @@
+.header-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1b1b1b;
+    height: 2 rem;
+    color: #fff;
+    font-family: greycliff-cf, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-sizing:10;
+    height: 40px;
+    font-size: clamp(.75rem, .7059859155rem + .1877934272vw, .875rem);
+}
+
+.navbar-container {
+    width: 100%; 
+    margin: 0 auto;
+    padding: 0 100px; 
+    box-sizing: border-box; 
+}
+
+.metafield-rich_text_field {
+    padding-top: 10px;
+}
+
+.navbar-brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+    
+    margin : 15px 0;
+}
+/* General styles */
+.navbar-container {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Container fluid styles */
+  .navbar-grap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fbfaf6 !important;
+
+  }
+  
+  /* Navbar toggler styles */
+  .navbar-togler {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .navbar-togler button {
+    border: none;
+    background: transparent;
+    font-size: 1.5rem;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .navbar-togler i {
+    font-size: 1.5rem;
+  }
+  
+  /* Collapsible section styles */
+  .collapse.navbar-collapse {
+    flex-grow: 1;
+    margin-left: 20px;
+  }
+  
+  .navbar-nav {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    color: #000;
+    font-family: greycliff-cf, sans-serif;
+    font-weight: 400;
+  }
+  
+  .navbar-nav .nav-link {
+    color: #333;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    transition: color 0.3s;
+  }
+  
+  .nav-item {
+    padding: 0 10px 0 0;
+  }
+
+  .dropdown-menu {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+  }
+  
+  /* Right elements styles */
+  .d-flex.align-items-center {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .text-reset {
+    color: inherit;
+    text-decoration: none;
+    position: relative;
+    position: 
+  }
+  
+  .text-reset i {
+    font-size: 1.5rem;
+  }
+
+  .text-reset .badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    font-size: 0.8rem;
+  }
+  
+  .btn {
+    padding: 5px 15px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+  }
+  
+  /* Avatar and notification dropdowns */
+  .dropdown .dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .dropdown-menu-end {
+    right: 0;
+    left: auto;
+  }
+  
+  /* Sticky top for navbar */
+  .sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    background-color: #f8f9fa;
+  }
+  

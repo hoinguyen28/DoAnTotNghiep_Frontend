@@ -13,7 +13,7 @@ async function getArtImage(endpoint: string): Promise<ImageModel[]> {
 
 export async function getAllImageByArt(idArt: number): Promise<ImageModel[]> {
    // Xác định endpoint
-   const endpoint: string = endpointBE + `/art/${idArt}/listImages`;
+   const endpoint: string = endpointBE + `/arts/${idArt}/listImages`;
 
    return getArtImage(endpoint);
 }

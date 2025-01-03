@@ -1,0 +1,123 @@
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(251, 250, 246);
+    padding: 40px;
+  }
+  
+  .hero__inner-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  .hero__left-side-wrapper {
+    flex: 1; /* Chữ chiếm 1 phần */
+    padding-right: 20px;
+  }
+  
+  .hero__title {
+    font-size: var(--desktop-title-font-size, 160px);
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.2;
+  }
+  
+  .hero__description {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+  }
+  
+  .hero__button-wrapper--mobile-align-center {
+    margin-top: 20px;
+  }
+  
+  .hero__button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .hero__right-side-wrapper {
+    flex: 2; /* Ảnh chiếm 2 phần */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .hero__carousel-wrapper {
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .hero__carousel-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  /* Media Queries for responsiveness */
+  
+  /* Small devices (phones, <768px) */
+  @media (max-width: 768px) {
+    .hero__inner-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .hero__left-side-wrapper {
+      padding-right: 0;
+      margin-bottom: 20px;
+      flex: 1; /* Chữ chiếm 1 phần */
+    }
+  
+    .hero__right-side-wrapper {
+      flex: 1; /* Ảnh chiếm 1 phần */
+    }
+  
+    .hero__title {
+      font-size: var(--mobile-title-font-size, 60px);
+    }
+  
+    .hero__description {
+      font-size: 14px;
+    }
+  
+    .hero__button {
+      font-size: 12px;
+    }
+  
+    .hero__carousel-wrapper {
+      max-width: 100%;
+    }
+  }
+  
+  /* Medium devices (tablets, 768px - 1024px) */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .hero__title {
+      font-size: calc(var(--desktop-title-font-size, 160px) * 0.7);
+    }
+  
+    .hero__description {
+      font-size: 15px;
+    }
+  
+    .hero__button {
+      font-size: 13px;
+    }
+  
+    .hero__carousel-wrapper {
+      max-width: 500px;
+    }
+  }
+  

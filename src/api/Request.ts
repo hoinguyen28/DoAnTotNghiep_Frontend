@@ -38,7 +38,7 @@ export async function requestAdmin(endpoint: string) {
    // Thành công
    return response.json();
 }
-export async function requestAuthor(endpoint: string) {
+export async function requestArtist(endpoint: string) {
    const token = localStorage.getItem("token");
 
    if (!token) {
@@ -54,7 +54,6 @@ export async function requestAuthor(endpoint: string) {
       method: "GET", 
       headers: {
          Authorization: `Bearer ${token}`,
-         Role: "author"  
       },
    });
 

@@ -36,3 +36,68 @@
     transform: rotate(360deg);
   }
 }
+/* CSS để tùy chỉnh toast container và toast message */
+.Toastify__toast-container {
+  position: fixed; /* Đảm bảo container luôn ở trên màn hình */
+  top: 20px; /* Cách từ trên cùng */
+  left: 50%; /* Căn giữa theo chiều ngang */
+  transform: translateX(-50%); /* Căn chính xác ở giữa */
+  z-index: 9999; /* Đảm bảo các toast luôn hiển thị trên các thành phần khác */
+  pointer-events: none; /* Đảm bảo không bị tương tác với các toast */
+}
+
+/* Định dạng cho các toast */
+.Toastify__toast {
+  max-width: 400px; /* Chiều rộng tối đa */
+  margin: 10px 0; /* Khoảng cách giữa các toast */
+  border-radius: 8px; /* Bo tròn góc */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Thêm bóng cho toast */
+  font-family: 'Arial', sans-serif; /* Đổi font chữ */
+  padding: 15px; /* Padding bên trong */
+  text-align: center; /* Căn giữa chữ trong toast */
+  color: white; /* Màu chữ trắng */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+/* Màu sắc cho các loại thông báo */
+.Toastify__toast--success {
+  background-color: #28a745; /* Xanh lá cho thành công */
+}
+
+.Toastify__toast--error {
+  background-color: #dc3545; /* Đỏ cho lỗi */
+}
+
+.Toastify__toast--info {
+  background-color: #17a2b8; /* Xanh da trời cho thông tin */
+}
+
+.Toastify__toast--warning {
+  background-color: #ffc107; /* Vàng cho cảnh báo */
+}
+
+/* Thêm hiệu ứng mờ dần khi toast hết thời gian */
+.Toastify__toast--closing {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Kiểu dáng cho icon trong toast */
+.Toastify__toast-icon {
+  margin-right: 10px; /* Khoảng cách giữa icon và text */
+  font-size: 20px; /* Kích thước icon */
+}
+
+/* Điều chỉnh cho container toast khi có nhiều toast */
+.Toastify__toast-container--top-left {
+  top: 20px;
+  left: 20px;
+}
+
+.Toastify__toast-container--bottom-right {
+  bottom: 20px;
+  right: 20px;
+}
