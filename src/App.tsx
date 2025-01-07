@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+// @ts-ignore
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 import Navbar from "./layouts/header-footer/navbar/Navbar";
 import Footer from "./layouts/header-footer/footer/Footer";
@@ -119,14 +122,6 @@ console.log("Current pathname:", location.pathname);
 										path='/admin/browse'
 										element={<BrowseManagementPage />}
 									/>
-									{/* <Route
-										path='/admin/art'
-										element={<ArtManagementPage />}
-									/> */}
-									{/* <Route
-										path='/admin/discount'
-										element={<DiscountManagementPage />}
-									/> */}
 									{isAdminPath && (
 										<Route path='*' element={<Error404Page />} />
 									)}

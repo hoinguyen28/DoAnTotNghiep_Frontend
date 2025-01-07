@@ -108,7 +108,7 @@ useEffect(() => {
       let isExistArt = cartList.find((cartItem) => cartItem.art.idArt === newArt.idArt);
       if (isExistArt) {
          // Tác phẩm đã tồn tại, không thể thêm vì số lượng chỉ có 1
-         toast.warning("This product is already in the cart.");
+         toast.warning("Sản phẩm này đã có trong giỏ hàng.");
       } else {
          // Lưu vào db
          if (isToken()) {
@@ -150,7 +150,7 @@ useEffect(() => {
          // Lưu vào localStorage
          localStorage.setItem("cart", JSON.stringify(cartList));
          // Thông báo thành công
-         toast.success("Added to cart successfully");
+         toast.success("Đã thêm vào giỏ hàng thành công");
          setTotalCart(cartList.length);
       }
    };

@@ -60,11 +60,11 @@ const LoginPage: React.FC<LoginPageProps> = (props) => {
 				// Kiểm tra xem tài khoản kích hoạt chưa
 				if (decodedToken.enabled === false) {
 					toast.warning(
-						"Your account is not activated or has been disabled"
+						"Tài khoản của bạn chưa được kích hoạt hoặc đã bị vô hiệu hóa"
 					);
 					return;
 				}
-				toast.success("Log in successfully");
+				toast.success("Đăng nhập thành công!");
 				setLoggedIn(true); // Đã đăng nhập
 				localStorage.setItem("token", jwtToken);
 
@@ -124,8 +124,8 @@ const LoginPage: React.FC<LoginPageProps> = (props) => {
 			})
 			.catch((error) => {
 				console.log("Login error: " + error);
-				setError("Account or password is incorrect");
-				toast.error("Account or password is incorrect");
+				setError("Tài khoản hoặc mật khẩu không đúng");
+				toast.error("Tài khoản hoặc mật khẩu không đúng");
 			});
 	}
 
@@ -134,7 +134,7 @@ const LoginPage: React.FC<LoginPageProps> = (props) => {
 			className='container my-5 py-4 rounded-5 shadow-5 bg-light'
 			style={{ width: "450px" }}
 		>
-			<h1 className='text-center'>LogIn</h1>
+			<h1 className='text-center'>Đăng nhập</h1>
 			{error && <p className='text-danger text-center'>{error}</p>}
 			<form
 				onSubmit={handleSubmit}
@@ -145,8 +145,8 @@ const LoginPage: React.FC<LoginPageProps> = (props) => {
 					fullWidth
 					required={true}
 					id='outlined-required'
-					label='Login name'
-					placeholder='Enter your login name'
+					label='Tên đăng nhập'
+					placeholder='Nhập tên đăng nhập'
 					value={username}
 					onChange={(e: any) => setUserName(e.target.value)}
 					className='input-field'
@@ -156,15 +156,15 @@ const LoginPage: React.FC<LoginPageProps> = (props) => {
 					required={true}
 					type='password'
 					id='outlined-required'
-					label='Password'
-					placeholder='Enter password'
+					label='Mật khẩu'
+					placeholder='Nhập mật khẩu'
 					value={password}
 					onChange={(e: any) => setPassword(e.target.value)}
 					className='input-field'
 				/>
 				<div className='d-flex justify-content-end mt-2 px-3'>
 					<span>
-					Don't have an account yet? <Link to={"/register"}>Register</Link>
+					Bạn chưa có tài khoản? Đăng ký ngay. <Link to={"/register"}>Đăng ký</Link>
 					</span>
 				</div>
 				<div className='text-center my-3'>
@@ -174,12 +174,12 @@ const LoginPage: React.FC<LoginPageProps> = (props) => {
 						type='submit'
 						sx={{ padding: "10px" }}
 					>
-						LogIn
+						Đăng nhập
 					</Button>
 				</div>
 			</form>
 			<div className='d-flex justify-content-end mt-2 px-3'>
-				<Link to={"/forgot-password"}>Forgot password</Link>
+				<Link to={"/forgot-password"}>Quên mật khẩu</Link>
 			</div>
 		</div>
 	);

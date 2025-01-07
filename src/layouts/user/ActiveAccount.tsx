@@ -56,7 +56,7 @@ const ActiveAccount: React.FC = () => {
 		return (
 			<div>
 				<div className='container bg-light my-3 rounded-3 p-4'>
-					<h1 className='text-center text-black'>ACCOUNT ACTIVATION</h1>
+					<h1 className='text-center text-black'>KÍCH HOẠT TÀI KHOẢN</h1>
 					<div className='d-flex align-items-center justify-content-center flex-column p-5'>
 						{enabled ? (
 							<>
@@ -65,11 +65,12 @@ const ActiveAccount: React.FC = () => {
 									alt='success'
 								/>
 								<h2 className='my-3 text-success'>
-								Account activated successfully
+								Tài khoản được kích hoạt thành công
 								</h2>
 								<Link to={"/login"}>
 									<Button variant='contained' className='my-3'>
-									Login to continue
+									
+Đăng nhập để tiếp tục
 									</Button>
 								</Link>
 							</>
@@ -81,7 +82,7 @@ const ActiveAccount: React.FC = () => {
 									width={150}
 								/>
 								<h2 className='my-3 text-danger'>
-								Account activation failed. Error: {notifications}
+								Kích hoạt tài khoản không thành công. Lỗi: {notifications}
 								</h2>
 							</>
 						)}
@@ -93,7 +94,7 @@ const ActiveAccount: React.FC = () => {
 		return (
 			<div>
 				<div className='container bg-light my-3 rounded-3 p-4'>
-					<h1 className='text-center text-black'>ACCOUNT ACTIVATION</h1>
+					<h1 className='text-center text-black'>KÍCH HOẠT TÀI KHOẢN</h1>
 					<div className='d-flex align-items-center justify-content-center flex-column p-5'></div>
 				</div>
 			</div>

@@ -90,7 +90,13 @@ export const UserTable: React.FC<UserTableProps> = (props) => {
 				return (
 					<Chip
 						label={params.value}
-						color={params.value === "CUSTOMER" ? "success" : "error"}
+						color={params.value === "CUSTOMER"
+							? "success"
+							: params.value === "ARTIST"
+							? "info"
+							: params.value === "ADMIN"
+							? "error"
+							: "error"}
 						variant='outlined'
 					/>
 				);

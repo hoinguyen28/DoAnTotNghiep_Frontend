@@ -58,7 +58,7 @@ const handleApplyDiscount = async (selectedIds: number[], discountPercentage: nu
 	  };
 	  console.log(request);
   
-	  const response = await fetch(`${endpointBE}/discount/add-discount`, {  // Thay đổi endpoint nếu cần
+	  const response = await fetch(`${endpointBE}/discount/add-discount`, {  
 		method: "POST",
 		headers: {
 		  Authorization: `Bearer ${token}`,

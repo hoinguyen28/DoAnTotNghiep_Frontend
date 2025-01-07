@@ -53,7 +53,7 @@ export const ArtHorizontal: React.FC<ArtHorizontalProps> = (props) => {
             src={dataImage}
             className="card-img-top"
             alt={props.cartItem.art.nameArt}
-            style={{ width: "100px" }}
+            style={{ width: "100px",marginRight: "10px" }}
           />
           <div className="d-flex flex-column pb-2">
             <Tooltip title={props.cartItem.art.nameArt} arrow>

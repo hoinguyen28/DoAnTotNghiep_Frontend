@@ -170,7 +170,7 @@ export const Chart: React.FC<ChartProps> = (props) => {
 					props.orders?.forEach((order) => {
 						const orderDate = new Date(order.dateCreated);
 						if (
-							order.status === "Success" &&
+							order.status === "Thành công" &&
 							orderDate.getFullYear() === parseInt(year + "")
 						) {
 							const month = orderDate.getMonth();
@@ -196,7 +196,7 @@ export const Chart: React.FC<ChartProps> = (props) => {
 						const orderDateFormatted = formatDate(orderDate);
 
 						if (
-							order.status === "Success" &&
+							order.status === "Thành công" &&
 							latestDays?.includes(orderDateFormatted)
 						) {
 							newDataNumberOfOrder_Daily[
@@ -226,13 +226,13 @@ export const Chart: React.FC<ChartProps> = (props) => {
 		labels,
 		datasets: [
 			{
-				label: "Total number of orders (Success)",
+				label: "Tổng số đơn hàng (Thành công)",
 				data: dataNumberOfOrder.current,
 				borderColor: "rgb(255, 99, 132)",
 				backgroundColor: "rgba(255, 99, 132, 0.5)",
 			},
 			{
-				label: "Total amount (Success)",
+				label: "Tổng số tiền kiếm được",
 				data: dataTotalPrice.current,
 				borderColor: "rgb(12, 99, 132)",
 				backgroundColor: "rgba(12, 99, 132, 0.5)",
@@ -254,13 +254,13 @@ export const Chart: React.FC<ChartProps> = (props) => {
 		let orderFailureTotal = 0;
 		let orderDeliveringTotal = 0;
 		props.orders?.forEach((order) => {
-			if (order.status === "Success") {
+			if (order.status === "Thành công") {
 				orderSuccessfulTotal++;
-			} else if (order.status === "Processing") {
+			} else if (order.status === "Đang xử lý") {
 				orderProcessingTotal++;
-			} else if (order.status === "Canceled") {
+			} else if (order.status === "Đã hủy") {
 				orderFailureTotal++;
-			} else if (order.status === "Delivering") {
+			} else if (order.status === "Đang giao hành") {
 				orderDeliveringTotal++;
 			}
 		});
@@ -295,7 +295,7 @@ export const Chart: React.FC<ChartProps> = (props) => {
 										},
 										{
 											value: orderProcessing,
-											label: "Đơn hàng đang được sử lý",
+											label: "Đơn hàng đang được xử lý",
 											color: "#4e4ee6",
 										},
 										{

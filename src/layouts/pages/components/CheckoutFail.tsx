@@ -12,11 +12,11 @@ export const CheckoutFail = () => {
 					width={150}
 				/>
 				<h2 className='my-3 text-danger'>
-				Your order processing failed
+				Quá trình xử lý đơn hàng của bạn không thành công
 				</h2>
 				<Link to={"/"}>
 					<Button variant='contained' className='my-3'>
-					Continue shopping
+					Tiếp tục mua sắm
 					</Button>
 				</Link>
 			</div>

@@ -43,7 +43,7 @@ const Dashboard = () => {
 			.catch((error) => console.log(error));
 	}, []);
 
-	// Lấy tổng số sách
+	// Lấy tổng số tranh
 	useEffect(() => {
 		getTotalNumberOfArts()
 			.then((response) => {

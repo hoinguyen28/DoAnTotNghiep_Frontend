@@ -93,7 +93,7 @@ export const BrowseForm: React.FC<BrowseFormProps> = (props) => {
         setStatusBtn(true);
     
         // Chỉ sử dụng endpoint update
-        const endpoint = endpointBE + "/art/update-art";
+        const endpoint = endpointBE + "/art/browse-art";
     
         console.log("artRequest gửi đi:", JSON.stringify(artRequest, null, 2));
     

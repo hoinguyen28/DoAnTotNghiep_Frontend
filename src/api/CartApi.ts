@@ -21,4 +21,4 @@ export async function getCartAllByIdUser(): Promise<CartItemModel[]> {
       console.error('Error: ', error);
    }
    return [];
-}
+}  

@@ -20,11 +20,11 @@ export const OrderDetail: React.FC<OrderDetailProps> = (props) => {
 				label={props.order.status}
 				sx={{ width: "auto-fit" }}
 				color={
-					props.order.status === "Success"
+					props.order.status === "Thành công"
 						? "success"
-						: props.order.status === "Processing"
+						: props.order.status === "Đang xử lý"
 						? "info"
-						: props.order.status === "Delivering"
+						: props.order.status === "Đang vận chuyển"
 						? "warning"
 						: "error"
 				}
@@ -33,43 +33,43 @@ export const OrderDetail: React.FC<OrderDetailProps> = (props) => {
 			<div className='row'>
 				<div className='col-lg-3 col-md-6 col-sm-12'>
 					<p className='mt-2'>
-					Order code:{" "}
+					Mã đặt hàng:{" "}
 						<strong className='ms-2'>{props.order.idOrder}</strong>
 					</p>
 					<p>
-					Date of purchase:
+					Ngày mua:
 						<strong className='ms-2'>
 							{format(new Date(props.order.dateCreated), "dd/MM/yyyy")}
 						</strong>
 					</p>
 					<p>
-					Total amount:
+					Tổng số tiền:
 						<strong className='ms-2'>
 							{props.order.totalPrice.toLocaleString("vi-vn")} $
 						</strong>
 					</p>
 					<p>
-					Payment method:
+					Phương thức thanh toán:
 						<strong className='ms-2'>{props.order.payment}</strong>
 					</p>
 				</div>
 				<div className='col-lg-4 col-md-6 col-sm-12'>
 					<p>
-					Full name:
+					Tên đầy đủ:
 						<strong className='ms-2'>{props.order.fullName}</strong>
 					</p>
 					<p>
-					Delivery address:
+					Địa chỉ giao hàng:
 						<strong className='ms-2'>
 							{props.order.deliveryAddress}
 						</strong>
 					</p>
 					<p>
-					Phone number:
+					Số điện thoại:
 						<strong className='ms-2'>{props.order.phoneNumber}</strong>
 					</p>
 					<p>
-					Fee Delivery
+					Phí giao hàng
 						<strong className='ms-2'>{props.order.feeDelivery}</strong>
 					</p>
 				</div>
@@ -82,7 +82,7 @@ export const OrderDetail: React.FC<OrderDetailProps> = (props) => {
 			</div>
 			<hr className='mt-3' />
 			<p>
-				<strong className='text-warning'>Note:</strong>
+				<strong className='text-warning'>Ghi chú:</strong>
 				<span className='ms-2'>{props.order.note}</span>
 			</p>
 			<hr className='mt-3' />

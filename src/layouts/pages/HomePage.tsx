@@ -30,7 +30,6 @@ const HomePage: React.FC<HomePageProps> = (props) => {
 					<hr className='w-100 mx-5' />
 				</div>
 			<NewArtList />
-
 			<Carousel />
 			{/* New Product */}
 			<div className='container'>

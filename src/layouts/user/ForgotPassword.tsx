@@ -32,19 +32,19 @@ export const ForgotPassword: React.FC = () => {
 				.then((response) => {
 					if (response.ok) {
 						toast.success(
-							"Sent successfully, please check your email to get the password"
+							"Đã gửi thành công, vui lòng kiểm tra email để lấy mật khẩu."
 						);
 						setEmail("");
 						navigation("/login");
 					} else {
-						toast.warning("Email does not exist!");
+						toast.warning("Email không tồn tại!");
 					}
 				})
 				.catch((error) => {
-					toast.error("Sending failed");
+					toast.error("Gửi không thành công");
 					console.log(error);
 				}),
-			{ pending: "In process..." }
+			{ pending: "Đang xử lý..." }
 		);
 	}
 
@@ -53,7 +53,7 @@ export const ForgotPassword: React.FC = () => {
 			className='container my-5 py-4 rounded-5 shadow-5 bg-light'
 			style={{ width: "450px" }}
 		>
-			<h1 className='text-center'>FORGOT PASSWORD</h1>
+			<h1 className='text-center'>QUÊN MẬT KHẨU</h1>
 			<form
 				onSubmit={handleSubmit}
 				className='form'
@@ -76,7 +76,7 @@ export const ForgotPassword: React.FC = () => {
 						type='submit'
 						sx={{ padding: "10px" }}
 					>
-						Recover password
+						Khôi phục mật khẩu
 					</Button>
 				</div>
 			</form>

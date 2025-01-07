@@ -11,6 +11,8 @@ import { SelectMultiple } from "../../../layouts/utils/SelectMultiple";
 import { LoadingButton } from "@mui/lab";
 import { getArtByIdAllInformation } from "../../../api/ArtApi";
 import { endpointBE } from "../../../layouts/utils/Constant";
+import { jwtDecode } from "jwt-decode";
+
 
 interface ArtFormProps {
 	id: number;
@@ -20,10 +22,19 @@ interface ArtFormProps {
 }
 
 export const ArtForm: React.FC<ArtFormProps> = (props) => {
+	const token = localStorage.getItem("token");
+
+    // Khai báo decodedToken
+    let decodedToken: any = null;
+
+    if (token) {
+        decodedToken = jwtDecode(token);
+    }
 	const [art, setArt] = useState<ArtModel>({
 		idArt: 0,
 		nameArt: "",
-		author: "",
+		author: decodedToken.lastName,
+		idAuthor: decodedToken.id,
 		description: "",
 		price: NaN,
 		finalPrice: NaN,
@@ -243,7 +254,7 @@ export const ArtForm: React.FC<ArtFormProps> = (props) => {
 									id='filled-required'
 									label='Tên tác giả'
 									style={{ width: "100%" }}
-									value={art.author}
+									value={decodedToken.lastName}
 									onChange={(e: any) =>
 										setArt({ ...art, author: e.target.value })
 									}

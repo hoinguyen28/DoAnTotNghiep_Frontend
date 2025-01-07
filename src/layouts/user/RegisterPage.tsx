@@ -103,20 +103,20 @@ const RegisterPage: React.FC = () => {
 				);
 
 				if (response.ok) {
-					toast.success("Account registration successful.");
-					toast.info("Please check your email to activate your account");
+					toast.success("Đăng ký tài khoản thành công.");
+					toast.info("Vui lòng kiểm tra email để kích hoạt tài khoản của bạn");
 					navigation("/login");
 					setStatusBtn(false);
 					return true;
 				} else {
-					toast.error("Account registration failed");
+					toast.error("Đăng ký tài khoản không thành công");
 					setStatusBtn(false);
 					return false;
 				}
 			} catch (error) {
 				console.log(error);
 				setStatusBtn(false);
-				toast.error("Account registration failed");
+				toast.error("Đăng ký tài khoản không thành công");
 			}
 		} else {
 			setStatusBtn(false);
@@ -154,7 +154,7 @@ const RegisterPage: React.FC = () => {
 
 	return (
 		<div className='container my-5 py-4 rounded-5 shadow-5 bg-light w-50'>
-			<h1 className='text-center'>Register</h1>
+			<h1 className='text-center'>Đăng ký</h1>
 
 			<form onSubmit={handleSubmit} className='form'>
 				<div className='row px-2'>
@@ -164,8 +164,8 @@ const RegisterPage: React.FC = () => {
 							error={errorUsername.length > 0 ? true : false}
 							helperText={errorUsername}
 							required={true}
-							label='Login name'
-							placeholder='Enter your login name'
+							label='Tên đăng nhập'
+							placeholder='Nhập tên đăng nhập của bạn'
 							value={username}
 							onChange={handleUsernameChange}
 							onBlur={(e: any) => {
@@ -180,8 +180,8 @@ const RegisterPage: React.FC = () => {
 							required={true}
 							fullWidth
 							type='password'
-							label='Password'
-							placeholder='Enter password'
+							label='Mật khẩu'
+							placeholder='Nhập mật khẩu'
 							value={password}
 							onChange={handlePasswordChange}
 							onBlur={(e: any) => {
@@ -196,8 +196,8 @@ const RegisterPage: React.FC = () => {
 							required={true}
 							fullWidth
 							type='password'
-							label='Confirm password'
-							placeholder='Confirm password'
+							label='Xác nhận mật khẩu'
+							placeholder='Xác nhận mật khẩu'
 							value={repeatPassword}
 							onChange={handleRepeatPasswordChange}
 							onBlur={(e: any) => {
@@ -215,8 +215,8 @@ const RegisterPage: React.FC = () => {
 							fullWidth
 							helperText={""}
 							required={true}
-							label='They buffer'
-							placeholder='Enter the buffer'
+							label='Họ và tên đệm'
+							placeholder='Nhập họ và tên đệm'
 							value={firstName}
 							onChange={(e: any) => {
 								setFirstName(e.target.value);
@@ -227,8 +227,8 @@ const RegisterPage: React.FC = () => {
 							fullWidth
 							helperText={""}
 							required={true}
-							label='Name'
-							placeholder='Enter Name'
+							label='Tên'
+							placeholder='Nhập tên'
 							value={lastName}
 							onChange={(e: any) => {
 								setLastName(e.target.value);
@@ -240,8 +240,8 @@ const RegisterPage: React.FC = () => {
 							error={errorPhoneNumber.length > 0 ? true : false}
 							helperText={errorPhoneNumber}
 							required={true}
-							label='Phone number'
-							placeholder='Enter phone number'
+							label='Số điện thoại'
+							placeholder='Nhập số điện thoại'
 							value={phoneNumber}
 							onChange={handlePhoneNumberChange}
 							onBlur={(e: any) => {
@@ -257,7 +257,7 @@ const RegisterPage: React.FC = () => {
 							helperText={errorEmail}
 							required={true}
 							label='Email'
-							placeholder='Enter email'
+							placeholder='Nhập email'
 							type='email'
 							value={email}
 							onChange={handleEmailChange}
@@ -270,7 +270,7 @@ const RegisterPage: React.FC = () => {
 				</div>
 				<div className='d-flex justify-content-end mt-2 px-3'>
 					<span>
-					Do you have an account? <Link to={"/login"}>LogIn</Link>
+					Bạn đã có tài khoản? Đăng nhập ngay. <Link to={"/login"}>Đăng nhập</Link>
 					</span>
 				</div>
 				<div className='text-center my-3'>
@@ -281,7 +281,7 @@ const RegisterPage: React.FC = () => {
 						sx={{ width: "25%", padding: "10px" }}
 					>
 						
-Register
+Đăng ký
 					</LoadingButton>
 				</div>
 			</form>

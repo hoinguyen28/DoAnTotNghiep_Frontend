@@ -5,7 +5,7 @@ import { GridColDef } from "@mui/x-data-grid";
 import React, { useEffect, useState } from "react";
 import { DataTable } from "../../../layouts/utils/DataTable";
 import ArtModel from "../../../model/ArtModel";
-import { getAllArtArtist } from "../../../api/ArtApi";
+import { getAllArtArtist1 } from "../../../api/ArtApi";
 import { getAllImageByArt } from "../../../api/ImageApi";
 import { toast } from "react-toastify";
 import { useConfirm } from "material-ui-confirm";
@@ -39,7 +39,7 @@ export const ArtTable: React.FC<ArtTableProps> = (props) => {
 		const idArtist = getIdUserByToken();
 		const fetchData = async () => {
 			try {
-				const artResponse = await getAllArtArtist(idArtist);
+				const artResponse = await getAllArtArtist1(idArtist);
 	
 				// Lọc các art có discountPercentage === 0
 				const filteredArtList = artResponse.artList.filter(
@@ -70,14 +70,6 @@ export const ArtTable: React.FC<ArtTableProps> = (props) => {
 		fetchData();
 	}, [props.keyCountReload]);
 	
-	
-    // const handleCheckboxChange = (id: number, isChecked: boolean) => {
-    //     setSelectedProductIds((prev) =>
-    //       isChecked ? [...prev, id] : prev.filter((productId) => productId !== id)
-        
-
-    //     );
-    //   };
     const handleCheckboxChange = (id: number, isChecked: boolean) => {
       setSelectedProductIds((prev) => {
         const updatedList = isChecked
@@ -90,10 +82,6 @@ export const ArtTable: React.FC<ArtTableProps> = (props) => {
       });
     };
 
-      // const handleApplyDiscount = () => {
-      //   console.log("Danh sách ID sản phẩm được chọn:", selectedProductIds);
-      //   // Gọi API hoặc xử lý logic thêm giảm giá tại đây
-      // };
 	// Xử lý xoá tranh
 	const handleDeleteArt = (id: any) => {
 		const token = localStorage.getItem("token");

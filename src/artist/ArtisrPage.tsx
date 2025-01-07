@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ArtistDetails from "./components/artist/ArtistProps";
-import { getAllArtArtist } from "../api/ArtApi"; // Thêm API lấy artList
+import { getAllArtArtist1 } from "../api/ArtApi"; // Thêm API lấy artList
 import ArtProps from "../layouts/products/components/ArtProps/ArtProps"; // Import component hiển thị art
 import ArtModel from "../model/ArtModel"
 
@@ -24,9 +24,9 @@ const ArtistPage: React.FC = () => {
   useEffect(() => {
     if (artistId !== null) {
       // Gọi API để lấy danh sách tác phẩm nghệ thuật của nghệ sĩ
-      getAllArtArtist(artistId)
+      getAllArtArtist1(artistId)
         .then((response) => {
-          setArtList(response.artList); // Giả sử hàm getAllArtArtist trả về mảng artList
+          setArtList(response.artList); 
           setLoading(false);
         })
         .catch((error) => {

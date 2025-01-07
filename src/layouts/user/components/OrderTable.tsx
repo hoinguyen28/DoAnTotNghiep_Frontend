@@ -46,10 +46,10 @@ const OrderTable: React.FC<OrderTableProps> = (props) => {
 
 	const columns: GridColDef[] = [
 		{ field: "id", headerName: "ID", width: 80 },
-		{ field: "dateCreated", headerName: "CREATION DATE", width: 280 },
+		{ field: "dateCreated", headerName: "NGÀY TẠO", width: 280 },
 		{
 			field: "totalPrice",
-			headerName: "TOTAL MONEY",
+			headerName: "TỔNG TIỀN",
 			width: 150,
 			renderCell: (params) => {
 				return (
@@ -59,18 +59,18 @@ const OrderTable: React.FC<OrderTableProps> = (props) => {
 		},
 		{
 			field: "status",
-			headerName: "STATUS",
+			headerName: "TRẠNG THÁI",
 			width: 180,
 			renderCell: (params) => {
 				return (
 					<Chip
 						label={params.value}
 						color={
-							params.value === "Success"
+							params.value === "Thành công"
 								? "success"
-								: params.value === "Processing"
+								: params.value === "Đang xử lý"
 								? "info"
-								: params.value === "Delivering"
+								: params.value === "Đang giao hàng"
 								? "warning"
 								: "error"
 						}
@@ -81,13 +81,13 @@ const OrderTable: React.FC<OrderTableProps> = (props) => {
 		},
 		{
 			field: "action",
-			headerName: "DETAIL",
+			headerName: "CHI TIẾT",
 			width: 170,
 			type: "actions",
 			renderCell: (item) => {
 				return (
 					<div>
-						<Tooltip title={"See details"}>
+						<Tooltip title={"Xem chi tiết"}>
 							<IconButton
 								color='secondary'
 								onClick={() => {

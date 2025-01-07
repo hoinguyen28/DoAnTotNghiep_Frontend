@@ -2,7 +2,7 @@ import { Card, CardContent, Typography } from "@mui/material";
 import PaidOutlinedIcon from "@mui/icons-material/PaidOutlined";
 import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
-import MenuArtOutlinedIcon from "@mui/icons-material/MenuBookOutlined";
+import ImageIcon from '@mui/icons-material/Image';
 import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
 import RateReviewOutlinedIcon from "@mui/icons-material/RateReviewOutlined";
 import React from "react";
@@ -200,10 +200,7 @@ export const ParameterDigital: React.FC<ParameterDigitalProps> = ({
 												fontWeight: "bold",
 											}}
 										>
-											<MenuArtOutlinedIcon
-												fontSize='large'
-												color='secondary'
-											/>
+											<ImageIcon fontSize='large' color='secondary' />
 										</span>
 									</div>
 								</div>

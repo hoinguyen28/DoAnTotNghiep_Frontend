@@ -11,16 +11,16 @@ export const CheckoutSuccess = () => {
 					alt='success'
 				/>
 				<h2 className='my-3 text-success'>
-				Your order has been received
+				Đặt hàng thành công
 				</h2>
-				<p className='mb-2'>Thank you for purchasing our products</p>
+				<p className='mb-2'>Cảm ơn bạn đã mua sản phẩm của chúng tôi</p>
 				<p className='mb-2'>
-				You will soon receive an order confirmation email from us
+					
 				</p>
 				<Link to={"/search"}>
 					<Button
 					 variant='contained' className='my-3'>
-					Continue shopping
+					Tiếp tục mua sắm
 					</Button>
 				</Link>
 			</div>

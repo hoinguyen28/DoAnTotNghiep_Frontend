@@ -87,7 +87,7 @@ const ArtProps: React.FC<ArtProps> = ({ art }) => {
          // Lưu vào localStorage
          localStorage.setItem("cart", JSON.stringify(cartList));
          // Thông báo thành công
-         toast.success("Added to cart successfully");
+         toast.success("Đã thêm vào giỏ hàng thành công");
          setTotalCart(cartList.length);
       }
    };
@@ -95,7 +95,7 @@ const ArtProps: React.FC<ArtProps> = ({ art }) => {
    // Xử lý chức năng yêu thích
    const handleFavoriteArt = async (newArt: ArtModel) => {
       if (!isToken()) {
-         toast.info("You must be logged in to use this function");
+         toast.info("Bạn phải đăng nhập để sử dụng chức năng này");
          navigation("/login");
          return;
       }

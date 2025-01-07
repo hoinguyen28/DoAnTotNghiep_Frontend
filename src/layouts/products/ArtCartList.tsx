@@ -30,7 +30,7 @@ const ArtCartList: React.FC<ArtCartListProps> = () => {
 		localStorage.setItem("cart", JSON.stringify(newCartList));
 		setCartList(newCartList);
 		setTotalCart(newCartList.length);
-		toast.success("Product deletion successful");
+		toast.success("Xóa sản phẩm thành công");
 	}
 
 	// Thanh toán
@@ -140,7 +140,7 @@ const ArtCartList: React.FC<ArtCartListProps> = () => {
     if (isToken()) {
       setIsCheckout(true);
     } else {
-      toast.warning("You need to log in to perform this function");
+      toast.warning("Bạn cần đăng nhập để thực hiện chức năng này");
       navigation("/login");
     }
   }}

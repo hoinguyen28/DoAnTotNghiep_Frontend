@@ -25,17 +25,16 @@ export async function getArt1(endpoint: string): Promise<ResultInterface> {
    const totalPage: number = response.page.totalPages;
    const size: number = response.page.totalElements;
 
+   // Lấy danh sách nghệ thuật từ _embedded.arts và lọc chỉ những tranh có reviewStatus là "Đã duyệt"
+   const filteredArtList: ArtModel[] = response._embedded.arts.filter((ArtData: ArtModel) => ArtData.reviewStatus === "Đã duyệt");
 
-   // Lấy danh sách nghệ thuật từ _embedded.arts
-   const ArtList: ArtModel[] = response._embedded.arts.map((ArtData: ArtModel) => ({
-      ...ArtData,
-   }));
-   // Lấy ảnh thumbnail của từng nghệ thuật
-   const ArtList1 = await Promise.all(
-      ArtList.map(async (Art: ArtModel) => {
+   // Lấy ảnh thumbnail của từng nghệ thuật đã được lọc
+   const ArtListWithThumbnails = await Promise.all(
+      filteredArtList.map(async (Art: ArtModel) => {
          const responseImg = await getAllImageByArt(Art.idArt);
          console.log(`Hình ảnh cho Art ID ${Art.idArt}:`, responseImg);
 
+         // Tìm ảnh thumbnail
          const thumbnail = responseImg.filter(image => image.thumbnail);
 
          // Nếu không có thumbnail, gán giá trị mặc định là một URL placeholder hoặc null
@@ -47,10 +46,10 @@ export async function getArt1(endpoint: string): Promise<ResultInterface> {
          };
       })
    );
-   // Trả về dữ liệu sau khi xử lý
-   return { artList: ArtList1, totalPage: totalPage, size: size };
-}
 
+   // Trả về dữ liệu sau khi xử lý
+   return { artList: ArtListWithThumbnails, totalPage: totalPage, size: size };
+}
 async function getArt(endpoint: string): Promise<ResultInterface> {
    // Gọi phương thức request để lấy dữ liệu từ API
    const response = await request(endpoint);
@@ -122,13 +121,24 @@ export async function getAllArtArtist(idArtist?: number): Promise<ResultInterfac
    
    return getArt(endpoint);
 }
+export async function getAllArtArtist1(idArtist?: number): Promise<ResultInterface> {
+   // Kiểm tra nếu idArtist không tồn tại
+   if (!idArtist) {
+       throw new Error("idArtist is required");
+   }
+
+   // Xác định endpoint
+   const endpoint = `${endpointBE}/arts/search/findByIdAuthor?idAuthor=${idArtist}`;
+   
+   return getArt1(endpoint);
+}
 
 
 export async function getNewArt(): Promise<ResultInterface> {
    // Xác định endpoint
    const endpoint: string = endpointBE + "/arts?sort=idArt,desc&size=4";
 
-   return getArt(endpoint);
+   return getArt1(endpoint);
 }
 export async function getRecommenArt(): Promise<ResultInterface> {
    // Xác định endpoint

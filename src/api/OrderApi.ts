@@ -40,7 +40,7 @@ export async function getAllOrders(): Promise<OrderModel[]> {
           cartItems: [], // Thêm cartItems nếu cần thiết
        }));
     } catch (error) {
-       console.error("Error while fetching orders:", error);
+       console.error("Lỗi khi tìm đơn đặt hàng:", error);
        throw error;
     }
  }
@@ -82,7 +82,7 @@ export async function getAllOrders(): Promise<OrderModel[]> {
           cartItems: [], // Thêm cartItems nếu cần thiết
        }));
     } catch (error) {
-       console.error("Error while fetching orders for user:", error);
+       console.error("Lỗi khi tìm nạp đơn hàng cho người dùng:", error);
        throw error;
     }
  }

@@ -38,10 +38,10 @@ const ArtCartProps: React.FC<ArtCartProps> = (props) => {
 
 	function handleConfirm() {
 		confirm({
-			title: "Delete product",
-			description: "Do you want to remove this product from your shopping cart?",
-			confirmationText: "Delete",
-			cancellationText: "Cancel",
+			title: "Xóa sẳn phẩm",
+			description: "Bạn có muốn xóa sản phẩm này khỏi giỏ hàng của mình không?",
+			confirmationText: "Xóa",
+			cancellationText: "Hủy",
 		})
 			.then(() => {
 				props.handleRemoveArt(props.cartItem.art.idArt);
@@ -92,7 +92,7 @@ if (thumbnailImage) {
 				setQuantity(quantity + 1);
 				handleModifiedQuantity(props.cartItem.art.idArt, 1);
 			} else {
-				toast.warning("Insufficient inventory");
+				toast.warning("Không đủ hàng tồn kho");
 			}
 		}
 	};

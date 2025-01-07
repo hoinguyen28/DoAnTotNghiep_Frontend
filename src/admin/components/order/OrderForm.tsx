@@ -43,13 +43,13 @@ export const OrderForm: React.FC<OrderFormProps> = (props) => {
 		get1Orders(props.id)
 			.then((response) => {
 				setOrder(response);
-				if (response.status === "Canceled") {
-					setSteps(["Processing", "Canceled"]);
-					setActiveStep(["Processing", "Canceled"].indexOf(response.status));
+				if (response.status === "Đã hủy") {
+					setSteps(["Đang xử lý", "Đã hủy"]);
+					setActiveStep(["Đang xử lý", "Đã hủy"].indexOf(response.status));
 				} else {
-					setSteps(["Processing", "Delivering", "Success"]);
+					setSteps(["Đang xử lý", "Đang giao hàng", "Thành công"]);
 					setActiveStep(
-						["Processing", "Delivering", "Success"].indexOf(
+						["Đang xử lý", "Đang giao hàng", "Thành công"].indexOf(
 							response.status
 						)
 					);
@@ -74,15 +74,15 @@ export const OrderForm: React.FC<OrderFormProps> = (props) => {
 			.then((response) => {
 				if (response.ok) {
 					props.setKeyCountReload(Math.random());
-					toast.success("Order updated successfully");
+					toast.success("Đơn hàng được cập nhật thành công");
 					props.handleCloseModal();
 				} else {
-					toast.error("Error while updating orders");
+					toast.error("Lỗi khi cập nhật đơn hàng");
 				}
 			})
 			.catch((error) => {
 				console.log(error);
-				toast.error("Error while updating orders");
+				toast.error("Lỗi khi cập nhật đơn hàng");
 			});
 	}
 
@@ -95,20 +95,20 @@ export const OrderForm: React.FC<OrderFormProps> = (props) => {
 				Authorization: `Bearer ${token}`,
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify({ ...order, status: "Canceled" }),
+			body: JSON.stringify({ ...order, status: "Đã hủy" }),
 		})
 			.then((response) => {
 				if (response.ok) {
 					props.setKeyCountReload(Math.random());
-					toast.success("Order canceled successfully");
+					toast.success("Đơn hàng đã được hủy thành công");
 					props.handleCloseModal();
 				} else {
-					toast.error("Error while canceling order");
+					toast.error("Lỗi khi hủy đơn hàng");
 				}
 			})
 			.catch((error) => {
 				console.log(error);
-				toast.error("Error while canceling order");
+				toast.error("Lỗi khi hủy đơn hàng");
 			});
 	};
 
@@ -116,8 +116,8 @@ export const OrderForm: React.FC<OrderFormProps> = (props) => {
 		<div>
 			<Typography className='text-center' variant='h4' component='h2'>
 				{props.option === "update"
-					? "UPDATE ORDER"
-					: "ORDER DETAILS"}
+					? "CẬP NHẬT ĐƠN HÀNG"
+					: "CHI TIẾT ĐƠN HÀNG"}
 			</Typography>
 			<hr />
 			<div className='container px-5'>
@@ -126,7 +126,7 @@ export const OrderForm: React.FC<OrderFormProps> = (props) => {
 					{props.option === "update" ? (
 						<FormControl sx={{ m: 1 }} size='small' fullWidth>
 							<InputLabel id='demo-simple-select-helper-label'>
-							Order status
+							Trạng thái đơn hàng
 							</InputLabel>
 							<Select
 								labelId='demo-simple-select-helper-label'
@@ -138,18 +138,18 @@ export const OrderForm: React.FC<OrderFormProps> = (props) => {
 									setOrder({ ...order, status: e.target.value })
 								}
 							>
-								<MenuItem value='Processing'>Processing</MenuItem>
-								<MenuItem value='Delivering'>
-								Delivering
+								<MenuItem value='Đang xử lý'>Đang xử lý</MenuItem>
+								<MenuItem value='Đang giao hàng'>
+								Đang giao hàng
 								</MenuItem>
-								<MenuItem value='Success'>Success</MenuItem>
-								<MenuItem value='Canceled'>Cancel</MenuItem>
+								<MenuItem value='Thành công'>Thành công</MenuItem>
+								<MenuItem value='Hủy đơn'>Hủy đơn</MenuItem>
 							</Select>
 						</FormControl>
 					) : (
 						<>
 							{props.option === "view-customer" &&
-								order.status === "Processing" && (
+								order.status === "Đang xử lý" && (
 									<>
 										<Button
 											className='me-3'
@@ -157,7 +157,7 @@ export const OrderForm: React.FC<OrderFormProps> = (props) => {
 											color='error'
 											onClick={() => handleCancleOrder()}
 										>
-											cancel orders
+											Hủy đơn hàng
 										</Button>
 									</>
 								)}
@@ -172,7 +172,7 @@ export const OrderForm: React.FC<OrderFormProps> = (props) => {
 					)}
 					{props.option !== "view-customer" && props.option !== "view" && (
 						<button className='btn btn-primary w-100 my-3' type='submit'>
-							Update orders
+							Cập nhật đơn hàng
 						</button>
 					)}
 				</form>
